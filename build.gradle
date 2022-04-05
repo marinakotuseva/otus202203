@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        guavaVersion = "11.0.2"
+        guavaVersion = "23.0"
     }
 }
 
@@ -8,7 +8,19 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
+subprojects {
+    repositories {
+        mavenCentral()
+    }
+
+    apply plugin: "java"
+
+    dependencies {
+        implementation "com.google.guava:guava:$guavaVersion"
+    }
+}
+
+group 'org.marina'
 version '1.0-SNAPSHOT'
 
 repositories {
