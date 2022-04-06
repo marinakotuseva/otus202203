@@ -1,17 +1,30 @@
+buildscript {
+    ext {
+        guavaVersion = "23.0"
+    }
+}
+
 plugins {
     id 'java'
 }
 
-group 'org.example'
+subprojects {
+    repositories {
+        mavenCentral()
+    }
+
+    apply plugin: "java"
+
+    dependencies {
+        implementation "com.google.guava:guava:$guavaVersion"
+    }
+}
+
+group 'org.marina'
 version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-}
-
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
 test {

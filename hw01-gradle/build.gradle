@@ -1,0 +1,52 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version "$shadowPluginVersion"
+}
+
+group 'org.marina'
+version '1.0-SNAPSHOT'
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'org.marina.HelloOtus'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+}
+
+// Custom task just in case
+task customFatJar(type: Jar) {
+
+    group = "customTasks"
+    description = "Creates a self-contained fat JAR of the application that can be run."
+
+    manifest.attributes["Main-Class"] = "org.marina.HelloOtus"
+
+    archiveBaseName.set("big-fat-jar")
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+// Plugin usage
+shadowJar {
+    archiveBaseName.set('jar-by-shadow')
+    archiveVersion.set('0.1')
+}
+
+// In case we need three fat jars, created by different ways
+tasks.register('createManyFatJars')  {
+    it.group("customTasks")
+
+    dependsOn 'clean'
+    dependsOn 'jar'
+    dependsOn 'customFatJar'
+    dependsOn 'shadowJar'
+}

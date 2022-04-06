@@ -1,2 +1,4 @@
 rootProject.name = 'otus202203'
 
+include 'hw01-gradle'
+
