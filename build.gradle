@@ -1,32 +1,38 @@
 buildscript {
     ext {
         guavaVersion = "23.0"
+        junitJupiterApiVersion = "5.8.2"
+        junitJupiterEngineVersion = "5.8.2"
+        assertjCoreVersion = "3.22.0"
+        mockitoCoreVersion = "4.4.0"
+        mockitoJunitJupiterVersion = "4.4.0"
     }
 }
 
 plugins {
-    id 'java'
+    id 'idea'
+    id "io.spring.dependency-management" version "1.0.11.RELEASE"
+    id 'com.github.johnrengelman.shadow' version '7.1.2' apply false
 }
 
-subprojects {
+allprojects {
+
     repositories {
         mavenCentral()
     }
 
-    apply plugin: "java"
-
-    dependencies {
-        implementation "com.google.guava:guava:$guavaVersion"
+    apply plugin: "io.spring.dependency-management"
+    dependencyManagement {
+        dependencies {
+            dependency "com.google.guava:guava:$guavaVersion"
+            dependency "org.junit.jupiter:junit-jupiter-api:$junitJupiterApiVersion"
+            dependency "org.junit.jupiter:junit-jupiter-engine:$junitJupiterEngineVersion"
+            dependency "org.assertj:assertj-core:$assertjCoreVersion"
+            dependency "org.mockito:mockito-core:$mockitoCoreVersion"
+            dependency "org.mockito:mockito-junit-jupiter:$mockitoJunitJupiterVersion"
+        }
     }
-}
 
-group 'org.marina'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
-
-test {
-    useJUnitPlatform()
+    group 'org.marina'
+    version '1.0-SNAPSHOT'
 }
