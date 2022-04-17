@@ -1,21 +1,16 @@
 package homework;
 
-
-import com.google.common.collect.Iterables;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class CustomerReverseOrder {
-    Set<Customer> customers = new LinkedHashSet<>();
+    private Deque<Customer> customers = new ArrayDeque<>();
 
     public void add(Customer customer) {
         customers.add(customer);
     }
 
     public Customer take() {
-        Customer last = Iterables.getLast(customers);
-        customers.remove(last);
-        return last;
+        return customers.pollLast();
     }
 }

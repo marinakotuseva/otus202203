@@ -1,11 +1,7 @@
 package homework;
 
 
-import java.util.AbstractMap;
-import java.util.Comparator;
-import java.util.Map;
-import java.util.Optional;
-import java.util.TreeMap;
+import java.util.*;
 
 public class CustomerService {
     private final Map<Customer, String> customers = new TreeMap<>(Comparator.comparingLong(Customer::getScores));
@@ -14,7 +10,7 @@ public class CustomerService {
         Optional<Map.Entry<Customer, String>> smallestOpt = customers.entrySet().stream().findFirst()
             .map(entry -> new AbstractMap.SimpleImmutableEntry<>(entry.getKey(), entry.getValue()));
 
-        if (!smallestOpt.isPresent()) return null;
+        if (smallestOpt.isEmpty()) return null;
 
         Map.Entry<Customer, String> currentData = smallestOpt.get();
         return new AbstractMap.SimpleEntry<>(getNewCustomer(currentData.getKey()), currentData.getValue());
