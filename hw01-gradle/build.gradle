@@ -44,3 +44,7 @@ tasks.register('createManyFatJars')  {
     dependsOn 'customFatJar'
     dependsOn 'shadowJar'
 }
+
+dependencies {
+    implementation "com.google.guava:guava"
+}
