@@ -19,7 +19,7 @@ public class CalcWith1500Heap {
         CalcDemo.main(new String[]{});
     }
 
-    // Gives result of: 24030.270 ± 3032.545  ms/op
+    // Gives result of: 3106.673 ± 190.541  ms/op
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(".*" + CalcWith1500Heap.class.getSimpleName() + ".*")

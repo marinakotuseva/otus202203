@@ -20,6 +20,7 @@ public class CalcWith5000Heap {
     }
 
     // Gives result of: 20404.172 ± 3199.556  ms/op
+    // Gives result of: 3164.512 ± 347.088  ms/op
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(".*" + CalcWith5000Heap.class.getSimpleName() + ".*")

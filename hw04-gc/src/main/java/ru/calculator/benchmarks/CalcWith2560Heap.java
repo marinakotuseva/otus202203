@@ -20,6 +20,7 @@ public class CalcWith2560Heap {
     }
 
     // Gives result of: 20495.964 ± 5310.966  ms/op
+    // Gives result of: 2669.815 ± 205.122  ms/op
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(".*" + CalcWith2560Heap.class.getSimpleName() + ".*")

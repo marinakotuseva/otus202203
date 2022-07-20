@@ -20,6 +20,7 @@ public class CalcWith256Heap {
     }
 
     // Gives result of: java.lang.OutOfMemoryError
+    // Gives result of: java.lang.OutOfMemoryError anyway
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(".*" + CalcWith256Heap.class.getSimpleName() + ".*")
