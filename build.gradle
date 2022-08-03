@@ -8,6 +8,8 @@ buildscript {
         mockitoJunitJupiterVersion = "4.4.0"
         jmhCoreVersion = "1.35"
         jmhGeneratorAnnprocessVersion = "1.35"
+        springAspectsVersion = "5.3.22"
+        springBootVersion = "2.7.2"
     }
 }
 
@@ -35,6 +37,8 @@ allprojects {
             dependency "org.mockito:mockito-junit-jupiter:$mockitoJunitJupiterVersion"
             dependency "org.openjdk.jmh:jmh-core:${jmhCoreVersion}"
             dependency "org.openjdk.jmh:jmh-generator-annprocess:${jmhGeneratorAnnprocessVersion}"
+            dependency "org.springframework:spring-aspects:${springAspectsVersion}"
+            dependency "org.springframework.boot:spring-boot-starter:${springBootVersion}"
         }
     }
 
