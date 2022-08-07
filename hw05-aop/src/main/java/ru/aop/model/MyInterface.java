@@ -7,16 +7,12 @@ import ru.aop.annotation.LogAction;
  */
 public interface MyInterface {
 
-    @LogAction
     void sayHi();
 
-    @LogAction
     void sayHi(String name);
 
-    @LogAction
     void sayHi(String name, String lastName);
 
-    @LogAction
     void sayHi(String name, String lastName, String patrName);
 
     default void noLogMethod() {

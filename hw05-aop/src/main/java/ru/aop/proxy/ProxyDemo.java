@@ -9,14 +9,14 @@ public class ProxyDemo {
 
     public static void main(String[] args) {
 
-        MyInterface myInterface = MyIoc.createMyInterface();
+        MyInterface myClass = MyIoc.createMyClass();
 
-        myInterface.sayHi();
-        myInterface.sayHi("Иван");
-        myInterface.sayHi("Иванов", "Иван");
-        myInterface.sayHi("Иванов", "Иван", "Иванович");
+        myClass.sayHi();
+        myClass.sayHi("Иван");
+        myClass.sayHi("Иванов", "Иван");
+        myClass.sayHi("Иванов", "Иван", "Иванович");
 
-        myInterface.noLogMethod();
+        myClass.noLogMethod();
     }
 
 }

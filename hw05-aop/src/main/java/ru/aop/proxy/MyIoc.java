@@ -11,7 +11,7 @@ import ru.aop.model.MyInterface;
  */
 public class MyIoc {
 
-    static MyInterface createMyInterface() {
+    static MyInterface createMyClass() {
         InvocationHandler handler = new MyInvocationHandler(new MyClass());
         return (MyInterface) Proxy.newProxyInstance(MyIoc.class.getClassLoader(),
                 new Class<?>[]{MyInterface.class}, handler);
